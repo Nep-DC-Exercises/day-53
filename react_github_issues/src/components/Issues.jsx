@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { loadData } from "../utils/loadData";
-
+import "bulma/css/bulma.css";
+import { Container, Table } from "bloomer";
 export default class Issues extends Component {
     state = {
         issues: []
@@ -16,20 +17,23 @@ export default class Issues extends Component {
 
     render() {
         const issues = this.state.issues;
+
         return (
-            <>
-                <ul>
+            <Container style={{margin: '0px 200px'}}>
+            <Table isNarrow isBordered isStriped>
+                <tbody>
                     {issues.map(issue => (
-                        <>
-                            <li>
-                                {issue.title}
-                                <p>{issue.url}</p>
-                                <p>{issue.body}</p>
-                            </li>
-                        </>
+                        <tr>
+                            <td>{issue.title}</td>
+                            <td>
+                                <a href={issue.url}>{issue.url}</a>
+                            </td>
+                            <td>{issue.body}</td>
+                        </tr>
                     ))}
-                </ul>
-            </>
+                </tbody>
+            </Table>
+            </Container>
         );
     }
 }
