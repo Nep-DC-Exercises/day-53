@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { loadData } from "../utils/loadData";
-import "bulma/css/bulma.css";
 import { Container, Table } from "bloomer";
 export default class Issues extends Component {
     state = {
@@ -25,7 +24,7 @@ export default class Issues extends Component {
                         {issues.map(issue => (
                             <tr>
                                 <td>
-                                    <a href={issue.url}>
+                                    <a href={`/issues/${issue.number}`}>
                                         <h4>
                                             <strong>{issue.title}</strong>
                                         </h4>
