@@ -19,20 +19,25 @@ export default class Issues extends Component {
         const issues = this.state.issues;
 
         return (
-            <Container style={{margin: '0px 200px'}}>
-            <Table isNarrow isBordered isStriped>
-                <tbody>
-                    {issues.map(issue => (
-                        <tr>
-                            <td>{issue.title}</td>
-                            <td>
-                                <a href={issue.url}>{issue.url}</a>
-                            </td>
-                            <td>{issue.body}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </Table>
+            <Container style={{ margin: "0px 200px" }}>
+                <Table isBordered isStriped>
+                    <tbody>
+                        {issues.map(issue => (
+                            <tr>
+                                <td>
+                                    <a href={issue.url}>
+                                        <h4>
+                                            <strong>{issue.title}</strong>
+                                        </h4>
+                                        <p>
+                                            #{issue.number} opened by {issue.user.login}
+                                        </p>
+                                    </a>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
             </Container>
         );
     }
